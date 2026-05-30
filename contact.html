@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact Realty Peoples | Fullerton, CA Real Estate</title>
+<meta name="description" content="Contact Realty Peoples in Fullerton, CA. Call 714.770.0777 or send a message for residential and commercial real estate help." />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which areas do you serve?","acceptedAnswer":{"@type":"Answer","text":"Orange County, LA County, and the greater Southern California region."}},{"@type":"Question","name":"What is the Online Cafe?","acceptedAnswer":{"@type":"Answer","text":"A members-only community where buyers and owners chat with service pros to ask questions and gather quotes. Free for buyers and owners."}}]}
+</script>
+</head>
+<body>
+<header id="site-header"></header>
+<main>
+  <section>
+    <div class="wrap">
+      <div class="split" style="gap:48px;align-items:start">
+        <div>
+          <div class="label" data-i18n="contact_kicker">Contact</div>
+          <h2 style="font-size:clamp(30px,4vw,46px);margin:12px 0 24px" data-i18n="contact_title">Contact Us Today</h2>
+          <p style="color:var(--muted);margin-bottom:28px" data-i18n="contact_sub">Whether you're buying, selling, or just exploring, we'd love to hear from you.</p>
+          <p style="margin-bottom:6px"><strong>Realty Peoples</strong></p>
+          <p style="color:var(--muted)">100 W. Valencia Mesa Dr. Suite #205<br>Fullerton, CA 92835</p>
+          <p style="margin-top:14px"><a href="tel:7147700777" style="color:var(--accent)">714.770.0777</a></p>
+          <p><a href="mailto:info@realtypeoples.com" style="color:var(--accent)">info@realtypeoples.com</a></p>
+          <p style="margin-top:10px;font-size:13px;color:var(--muted)">DRE# 02181947 | NMLS# 2342350</p>
+        </div>
+        <div class="form-card">
+          <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="thanks(event,this)">
+            <input type="hidden" name="form-name" value="contact">
+            <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+            <div class="field"><label data-i18n="f_first">First Name <span class="req">*</span></label><input name="first_name" required></div>
+            <div class="field"><label data-i18n="f_email">Email <span class="req">*</span></label><input type="email" name="email" required></div>
+            <div class="field"><label data-i18n="f_phone">Phone</label><input type="tel" name="phone"></div>
+            <div class="field"><label data-i18n="f_msg">Message <span class="req">*</span></label><textarea name="message" required></textarea></div>
+            <button class="btn btn-accent" type="submit" data-i18n="f_send">Send Message</button>
+            <div class="form-ok" data-i18n="f_thanks">Thank you — we'll be in touch shortly.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#fbfaf8">
+    <div class="wrap" style="max-width:840px">
+      <div class="center-head"><div class="label" data-i18n="faq_kicker">FAQ</div><h2 data-i18n="faq_title">Frequently Asked Questions</h2></div>
+      <div id="faqList"></div>
+    </div>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="js/data.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

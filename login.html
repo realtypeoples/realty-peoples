@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Member Login Portal | Realty Peoples</title>
+<meta name="description" content="Log in or create an account to access the Realty Peoples Online Cafe." />
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header id="site-header"></header>
+<main>
+  <section>
+    <div class="wrap auth">
+      <div class="center-head"><div class="label" data-i18n="nav_login">Member Login Portal</div><h2 data-i18n="login_title">Welcome</h2></div>
+      <div class="auth-card">
+        <div class="tabs">
+          <button class="active" id="tabSignin" onclick="setTab('signin')" data-i18n="login_signin">Sign In</button>
+          <button id="tabSignup" onclick="setTab('signup')" data-i18n="login_signup">Create Account</button>
+        </div>
+
+        <div id="roleWrap" style="display:none">
+          <div class="label" style="margin-bottom:10px" data-i18n="login_iam">I am a…</div>
+          <div class="roles">
+            <div class="role active" data-role="homeowner" onclick="setRole(this)"><div class="ttl" data-i18n="role_owner">Homeowner / Buyer</div><div class="sub" data-i18n="role_owner_sub">Free</div></div>
+            <div class="role" data-role="pro" onclick="setRole(this)"><div class="ttl" data-i18n="role_pro">Service Pro</div><div class="sub" data-i18n="role_pro_sub">Small fee</div></div>
+          </div>
+          <div class="field pro-cat" id="proCat">
+            <label data-i18n="role_cat">Your category</label>
+            <select>
+              <option>Plumber</option><option>Interior Designer</option><option>General Contractor</option>
+              <option>Electrician</option><option>Lender / Mortgage</option><option>Home Inspector</option>
+              <option>Landscaper</option><option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <form onsubmit="doLogin(event)">
+          <div class="field"><label data-i18n="login_user">Username or Email</label><input id="liUser" required autocomplete="username"></div>
+          <div class="field"><label data-i18n="login_pass">Password</label><input id="liPass" type="password" required autocomplete="current-password"></div>
+          <button class="btn btn-accent" type="submit" style="width:100%" id="loginBtn" data-i18n="login_signin">Sign In</button>
+        </form>
+        <p class="note" data-i18n="login_secure">🔒 Demo only. Connect Supabase Auth for production — passwords are hashed and never stored by us, served over HTTPS with row-level security.</p>
+      </div>
+    </div>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="js/data.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

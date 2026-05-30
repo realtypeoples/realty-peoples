@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Homes for Sale in Orange County &amp; LA County | Realty Peoples</title>
+<meta name="description" content="Explore residential homes across Orange County, LA County, and Southern California with Realty Peoples." />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header id="site-header"></header>
+<main>
+  <section class="hero" style="padding:0">
+    <!-- IMG_RES_HERO : swap for a big Spanish-style modern interior -->
+    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1920&q=80" alt="Residential interior">
+    <div class="veil"></div>
+    <div class="inner"><h1 data-i18n="nav_res">Residential</h1><p data-i18n="res_sub">Homes across Orange County, LA County &amp; beyond.</p></div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="center-head"><div class="label" data-i18n="res_recent_kicker">Recently Sold &amp; Featured</div><h2 data-i18n="res_recent_title">A Look at Our Work</h2></div>
+      <div class="carousel" id="resCarousel"></div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="video-wrap">
+        <div class="frame">
+          <!-- VIDEO: swap src for an Irvine neighborhood video (Vimeo/YouTube) -->
+          <iframe src="https://player.vimeo.com/video/76979871?title=0&byline=0&portrait=0" allow="fullscreen" allowfullscreen></iframe>
+        </div>
+        <div class="video-quote">"A neighborhood is not just where you live — it's where your story unfolds."<span data-i18n="res_quote_sub">Irvine, California</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2 data-i18n="email_title">Stay in the Know</h2>
+      <p data-i18n="email_sub">New listings, market notes, and community updates — straight to your inbox.</p>
+      <form class="signup" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="thanks(event,this)"><input type="hidden" name="form-name" value="newsletter"><p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p><input type="email" name="email" required placeholder="you@email.com" data-i18n-ph="email_ph"><button class="btn btn-accent" type="submit" data-i18n="subscribe">Subscribe</button></form>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="center-head"><div class="label" data-i18n="visit_kicker">Visit Us</div><h2 data-i18n="visit_title">Come Say Hello</h2></div>
+      <div class="map-frame"><iframe src="https://www.google.com/maps?q=100+W+Valencia+Mesa+Dr+Suite+205+Fullerton+CA+92835&output=embed" loading="lazy"></iframe></div>
+      <p style="text-align:center;margin-top:18px;color:var(--muted)">100 W. Valencia Mesa Dr. Suite #205, Fullerton CA 92835 · 714.770.0777</p>
+    </div>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="js/data.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

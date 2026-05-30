@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Realty Peoples Online Cafe | Connect with Pros &amp; Buyers</title>
+<meta name="description" content="A members-only community where homebuyers and owners chat with trusted service pros — plumbers, designers, contractors, lenders." />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header id="site-header"></header>
+<main>
+  <!-- Gate (shown when logged out) -->
+  <div id="cafeGate">
+    <section class="cafe-gate">
+      <div class="label" data-i18n="cafe_kicker">Members Only</div>
+      <h2 data-i18n="cafe_gate_title">The Online Cafe</h2>
+      <p style="max-width:560px;margin:0 auto 28px;color:var(--muted)" data-i18n="cafe_gate_p">Chat with homebuyers, owners, and trusted pros — plumbers, designers, contractors, lenders. Get quotes and answers without the endless Googling. Free for buyers &amp; owners.</p>
+      <a class="btn btn-accent" href="login.html" data-i18n="cafe_gate_cta">Log In or Join</a>
+    </section>
+  </div>
+
+  <!-- App (shown after login) -->
+  <section id="cafeApp" style="display:none">
+    <div class="wrap">
+      <div class="center-head" style="margin-bottom:28px"><div class="label" data-i18n="cafe_kicker">Members Only</div><h2 data-i18n="nav_cafe">Online Cafe</h2></div>
+      <div class="cafe-app show">
+        <aside class="cafe-side">
+          <div class="sh" data-i18n="cafe_channels">Channels</div>
+          <div id="chanList"></div>
+          <div class="sh" style="margin-top:24px" data-i18n="cafe_dm">Direct Messages</div>
+          <button class="chan" disabled style="color:#aaa">+ New message (coming soon)</button>
+        </aside>
+        <div class="cafe-main">
+          <div class="cafe-top"><h3 id="chanTitle"># Homebuyers Lounge</h3><p id="chanDesc">Introduce yourself and ask anything.</p></div>
+          <div class="cafe-embed">
+            <div class="box">
+              <div class="ic">💬</div>
+              <h3 style="margin:12px 0" data-i18n="cafe_embed_title">Chat embeds here</h3>
+              <p style="color:var(--muted)">This is your <strong>SLACK EMBED SLOT</strong>. Paste your Slack workspace embed (or chosen chat widget) iframe into this box to make the channel live.</p>
+              <p style="margin-top:14px;font-size:13px;color:var(--muted)">e.g. <code>&lt;iframe src="https://app.slack.com/..."&gt;&lt;/iframe&gt;</code></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:18px">Logged in as <strong id="cafeUser">member</strong> · <a href="#" onclick="logout();return false;" style="color:var(--accent)" data-i18n="logout">Log out</a></p>
+    </div>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="js/data.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

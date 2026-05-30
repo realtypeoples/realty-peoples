@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About Realty Peoples | Client-First Real Estate, Fullerton CA</title>
+<meta name="description" content="Meet Realty Peoples — a client-first real estate team serving Orange County, LA County, and Southern California." />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header id="site-header"></header>
+<main>
+  <section style="padding:0">
+    <div class="split">
+      <div class="body">
+        <div class="label" data-i18n="about_kicker">Who We Are</div>
+        <h2 data-i18n="about_title">We Are Realty Peoples</h2>
+        <p data-i18n="about_mission">A client-first real estate team serving Orange County, LA County, and Southern California — guiding buyers, sellers, and owners with care, candor, and craft.</p>
+        <div style="margin-top:14px"><a class="btn btn-ghost" href="contact.html" data-i18n="contact_us">Contact Us</a></div>
+      </div>
+      <!-- IMG_ABOUT -->
+      <div class="media" style="background-image:url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1100&q=80')"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="center-head"><div class="label" data-i18n="team_kicker">Our Agents</div><h2 data-i18n="team_title">Meet the Team</h2></div>
+      <div class="team-grid" id="teamGrid"></div>
+    </div>
+  </section>
+
+  <section style="background:#fbfaf8">
+    <div class="wrap">
+      <div class="split" style="gap:48px;align-items:center">
+        <div>
+          <div class="label" data-i18n="consult_kicker">Get Started</div>
+          <h2 style="font-size:clamp(30px,4vw,46px);margin-top:12px" data-i18n="consult_title">Consult With Us Today</h2>
+          <p style="color:var(--muted);margin-top:16px" data-i18n="consult_sub">Submit the inquiry form to facilitate a comprehensive consultation and determine how our solutions can advance your objectives.</p>
+        </div>
+        <div class="form-card">
+          <form name="consult" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="thanks(event,this)">
+            <input type="hidden" name="form-name" value="consult">
+            <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+            <div class="field"><label data-i18n="f_first">First Name <span class="req">*</span></label><input name="first_name" required></div>
+            <div class="field"><label data-i18n="f_email">Email <span class="req">*</span></label><input type="email" name="email" required></div>
+            <div class="field checkrow"><input type="checkbox" id="ab_opt" name="newsletter_optin" value="yes"><label for="ab_opt" style="text-transform:none;letter-spacing:0;margin:0;font-size:14px" data-i18n="f_opt">Sign me up for news &amp; updates</label></div>
+            <div class="field"><label data-i18n="f_msg">Message <span class="req">*</span></label><textarea name="message" required></textarea></div>
+            <button class="btn btn-accent" type="submit" data-i18n="f_submit">Submit Inquiry</button>
+            <div class="form-ok" data-i18n="f_thanks">Thank you — we'll be in touch shortly.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="js/data.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
