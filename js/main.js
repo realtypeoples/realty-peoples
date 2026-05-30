@@ -73,7 +73,7 @@ function footerHTML(){
 function applyLang(lang){
   const dict=I18N[lang]||I18N.en;
   document.querySelectorAll('[data-i18n]').forEach(el=>{
-    const k=el.getAttribute('data-i18n'); if(dict[k]) el.textContent=dict[k];
+    const k=el.getAttribute('data-i18n'); if(dict[k]) el.innerHTML=dict[k];
   });
   document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
     const k=el.getAttribute('data-i18n-ph'); if(dict[k]) el.placeholder=dict[k];
