@@ -16,7 +16,6 @@ function headerHTML(){
       <a class="navlink" href="cafe.html" data-page="cafe" data-i18n="nav_cafe">Online Cafe</a>
       <a class="navlink" href="about.html" data-page="about" data-i18n="nav_about">About</a>
       <a class="navlink" href="contact.html" data-page="contact" data-i18n="nav_contact">Contact</a>
-      <a class="btn btn-ghost" href="login.html" style="padding:10px 18px;font-size:12px" data-i18n="nav_login">Member Login</a>
       <div class="lang">
         <button class="lang-btn" id="langBtn">🌐 <span id="langCur">EN</span> ▾</button>
         <div class="lang-menu" id="langMenu">
