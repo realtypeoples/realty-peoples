@@ -16,9 +16,9 @@ const RESIDENTIAL_LISTINGS = [
 ];
 
 const TEAM = [
-  {name:"Agent Name", lic:"DRE# 00000000 · NMLS# 0000000", bio:"A dedicated agent with deep roots in Orange County, known for client-first service and sharp market insight.", img:""},
-  {name:"Agent Name", lic:"DRE# 00000000 · NMLS# 0000000", bio:"Specializes in luxury and Spanish-modern homes across LA County, with a calm, detail-driven approach.", img:""},
-  {name:"Agent Name", lic:"DRE# 00000000 · NMLS# 0000000", bio:"Helps first-time buyers and investors alike navigate Southern California with confidence.", img:""},
+  {name:"Megan Kim", lic:"DRE# 02071171 · NMLS# 1781577", bio:"A dedicated agent with deep roots in Orange County, known for client-first service and sharp market insight.", img:""},
+  {name:"David Han", lic:"DRE# 00000000 · NMLS# 0000000", bio:"An agent with a calm, detail-driven approach, speaking fluent English and Korean.", img:""},
+  {name:"Aiden Lee", lic:"DRE# 00000000 · NMLS# 0000000", bio:"An agent with a positive attitude that helps buyers and investors alike navigate Southern California with confidence.", img:""},
   {name:"Agent Name", lic:"DRE# 00000000 · NMLS# 0000000", bio:"Commercial and residential expertise, fluent in serving the region's diverse communities.", img:""}
 ];
 
