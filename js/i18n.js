@@ -21,7 +21,7 @@ const I18N = {
       login_title:"Welcome",login_signin:"Sign In",login_signup:"Create Account",login_iam:"I am a…",role_owner:"Homeowner / Buyer",role_owner_sub:"Free",role_pro:"Service Pro",role_pro_sub:"Small fee",role_cat:"Your category",login_user:"Username or Email",login_pass:"Password",login_secure:"🔒 Demo only. Connect Supabase Auth for production — passwords are hashed and never stored by us, served over HTTPS with row-level security.",
       f_explore:"Explore",f_network:"Our Network",f_more:"+ more (logo slots)",f_contactform:"Contact Form"},
   ko:{nav_res:"주거용",nav_com:"상업용",nav_cafe:"온라인 카페",nav_about:"소개",nav_contact:"문의",nav_login:"회원 로그인",view:"보기",
-     home_kicker:"오렌지 카운티 · LA 카운티 · 남부 캘리포니아",home_title:"당신의 일상이<br>머무는 그곳,<br>행복이 시작됩니다",home_sub:"고객 중심의 주거 및 상업용 부동산, 그리고 함께하는 커뮤니티.",home_cta1:"매물 보기",home_cta2:"카페 참여",
+     home_kicker:"오렌지 카운티 · LA 카운티 · 남부 캘리포니아",home_title:"당신의 일상이 머무는 그곳,<br>행복이 시작됩니다",home_sub:"고객 중심의 주거 및 상업용 부동산, 그리고 함께하는 커뮤니티.",home_cta1:"매물 보기",home_cta2:"카페 참여",
       vision_kicker:"창립자의 비전",vision_title:"당신을 중심으로",vision_cta:"회사 소개",
       testi_kicker:"고객 후기",testi_title:"고객들의 이야기",
       email_title:"소식 받기",email_sub:"새 매물과 시장 소식을 받아보세요.",email_ph:"you@email.com",subscribe:"구독",
