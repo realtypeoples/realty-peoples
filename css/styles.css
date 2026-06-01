@@ -55,7 +55,7 @@ header.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.06)}
 .hero .inner{position:relative;z-index:2;max-width:760px;padding:0 24px}
 .hero h1{font-size:clamp(34px,5vw,62px);color:#fff;word-break:keep-all}
 /* GATEWAYS */
-.gateways{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line)}
+.gateways{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--line)}
 .gateway{position:relative;height:340px;overflow:hidden;cursor:pointer;color:#fff;display:block}
 .gateway img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.6s}
 .gateway:hover img{transform:scale(1.06)}
