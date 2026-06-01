@@ -102,8 +102,18 @@ function renderCommercial(){
     com+=`<div class="lcard" style="flex:none"><div class="ph" style="display:flex;align-items:center;justify-content:center;color:#b9b2a6;font-size:13px;letter-spacing:.1em">IMAGE SLOT ${i}</div>
     <div class="info"><div class="city">City, CA</div><div class="desc">Commercial space — add details &amp; image later.</div>
     <div class="meta"><span>— sqft</span><span>— /mo</span></div></div></div>`;
-  }
+  } 
   el.innerHTML=com;
+}
+function renderBusiness(){
+  const el=document.getElementById('bizGrid'); if(!el) return;
+  let b='';
+  for(let i=1;i<=10;i++){
+    b+=`<div class="lcard" style="flex:none"><div class="ph" style="display:flex;align-items:center;justify-content:center;color:#b9b2a6;font-size:13px;letter-spacing:.1em">IMAGE SLOT ${i}</div>
+    <div class="info"><div class="city">Business Name, CA</div><div class="desc">Retail business — add details &amp; image later.</div>
+    <div class="meta"><span>SOLD / For Sale</span></div></div></div>`;
+  }
+  el.innerHTML=b;
 }
 function renderTeam(){
   const el=document.getElementById('teamGrid'); if(!el) return;
@@ -211,7 +221,7 @@ document.addEventListener('DOMContentLoaded',function(){
   window.addEventListener('scroll',()=>{ if(hdr) hdr.classList.toggle('scrolled',window.scrollY>10); });
 
   // render any sections present on this page
-  renderTestimonials(); renderResListings(); renderCommercial(); renderTeam(); renderFaqs(); renderChannels();
+renderTestimonials(); renderResListings(); renderCommercial(); renderBusiness(); renderTeam(); renderFaqs(); renderChannels();
 
   // cafe gate / app
   const gate=document.getElementById('cafeGate'), app=document.getElementById('cafeApp');
