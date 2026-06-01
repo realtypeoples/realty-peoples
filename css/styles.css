@@ -204,3 +204,17 @@ footer a:hover{color:var(--accent)}
   .f-grid{grid-template-columns:1fr}
   section{padding:64px 0}
 }
+
+/* ---- clickable listing cards + popup ---- */
+.lcard{cursor:pointer;transition:transform .2s, box-shadow .2s}
+.lcard:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.10)}
+.rp-modal{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.55);padding:24px}
+.rp-modal.open{display:flex}
+.rp-modal-box{background:#fff;max-width:620px;width:100%;max-height:88vh;overflow:auto;position:relative}
+.rp-modal-box .ph{height:300px;background:#f1ede7 center/cover}
+.rp-modal-body{padding:32px}
+.rp-modal-body .tag{display:inline-block;background:var(--accent);color:#fff;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;margin-bottom:14px}
+.rp-modal-body h3{font-size:30px;margin-bottom:6px}
+.rp-modal-body .sub{color:var(--muted);margin-bottom:18px}
+.rp-modal-body .detail{color:var(--ink);line-height:1.7;white-space:pre-line}
+.rp-close{position:absolute;top:14px;right:16px;background:rgba(0,0,0,.5);color:#fff;border:none;width:36px;height:36px;border-radius:50%;font-size:20px;cursor:pointer;z-index:2}
