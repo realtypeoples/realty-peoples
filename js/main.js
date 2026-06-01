@@ -13,6 +13,7 @@ function headerHTML(){
     <nav class="nav-links" id="navlinks">
       <a class="navlink" href="residential.html" data-page="residential" data-i18n="nav_res">Residential</a>
       <a class="navlink" href="commercial.html" data-page="commercial" data-i18n="nav_com">Commercial</a>
+      <a class="navlink" href="business.html" data-page="business" data-i18n="nav_biz">Business</a>
       <a class="navlink" href="cafe.html" data-page="cafe" data-i18n="nav_cafe">Online Cafe</a>
       <a class="navlink" href="about.html" data-page="about" data-i18n="nav_about">About</a>
       <a class="navlink" href="contact.html" data-page="contact" data-i18n="nav_contact">Contact</a>
