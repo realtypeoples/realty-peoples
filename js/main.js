@@ -37,8 +37,7 @@ function footerHTML(){
   <div class="wrap">
     <div class="f-grid">
       <div>
-        <div class="logo-slot">LOGO SLOT</div>
-        <div class="f-logo">Realty Peoples</div>
+      <img src="logo.png" alt="Realty Peoples logo" style="width:170px;height:auto;margin-bottom:14px">
         <p>DRE# 02181947 | NMLS# 2342350</p>
         <p style="margin-top:12px">100 W. Valencia Mesa Dr. Suite #205<br>Fullerton, CA 92835</p>
         <p style="margin-top:12px"><a href="tel:7147700777">714.770.0777</a><br><a href="mailto:info@realtypeoples.com">info@realtypeoples.com</a></p>
