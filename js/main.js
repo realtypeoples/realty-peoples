@@ -91,27 +91,37 @@ function renderTestimonials(){
 function renderResListings(){
   const el=document.getElementById('resCarousel'); if(!el) return;
   el.innerHTML=RESIDENTIAL_LISTINGS.map(l=>`
-    <div class="lcard"><div class="ph" style="background-image:url('${l.img}')"><span class="tag">${l.tag}</span></div>
+    <div class="lcard" onclick="openListing(this)" data-tag="${l.tag||''}" data-title="${l.city}" data-detail="${(l.detail||'').replace(/"/g,'&quot;')}" data-img="${l.img||''}">
+    <div class="ph" style="background-image:url('${l.img}')"><span class="tag">${l.tag}</span></div>
+    <div class="info"><div class="city">${l.city}</div><div class="desc">${l.desc}</div></div></div>`).join('');
+}
+function renderResGrid(){
+  const el=document.getElementById('resGrid'); if(!el) return;
+  el.innerHTML=RESIDENTIAL_LISTINGS.map(l=>`
+    <div class="lcard" style="flex:none" onclick="openListing(this)" data-tag="${l.tag||''}" data-title="${l.city}" data-detail="${(l.detail||'').replace(/"/g,'&quot;')}" data-img="${l.img||''}">
+    <div class="ph" style="background-image:url('${l.img}')"><span class="tag">${l.tag}</span></div>
     <div class="info"><div class="city">${l.city}</div><div class="desc">${l.desc}</div></div></div>`).join('');
 }
 function renderCommercial(){
   const el=document.getElementById('comGrid'); if(!el) return;
-  let com='';
-  for(let i=1;i<=10;i++){
-    com+=`<div class="lcard" style="flex:none"><div class="ph" style="display:flex;align-items:center;justify-content:center;color:#b9b2a6;font-size:13px;letter-spacing:.1em">IMAGE SLOT ${i}</div>
-    <div class="info"><div class="city">City, CA</div><div class="desc">Commercial space — add details &amp; image later.</div>
-    <div class="meta"><span>— sqft</span><span>— /mo</span></div></div></div>`;
-  } 
+  el.innerHTML=COMMERCIAL_LISTINGS.map((l,i)=>{
+    const hasImg=!!l.img;
+    return `<div class="lcard" style="flex:none" onclick="openListing(this)" data-tag="${l.tag||''}" data-title="${l.city}" data-detail="${(l.detail||'').replace(/"/g,'&quot;')}" data-img="${l.img||''}">
+    <div class="ph" ${hasImg?`style="background-image:url('${l.img}')"`:`style="display:flex;align-items:center;justify-content:center;color:#b9b2a6;font-size:13px;letter-spacing:.1em"`}>${hasImg?`<span class="tag">${l.tag}</span>`:`IMAGE SLOT ${i+1}`}</div>
+    <div class="info"><div class="city">${l.city}</div><div class="desc">${l.desc}</div></div></div>`;
+  }).join('');
+}
   el.innerHTML=com;
 }
 function renderBusiness(){
   const el=document.getElementById('bizGrid'); if(!el) return;
-  let b='';
-  for(let i=1;i<=10;i++){
-    b+=`<div class="lcard" style="flex:none"><div class="ph" style="display:flex;align-items:center;justify-content:center;color:#b9b2a6;font-size:13px;letter-spacing:.1em">IMAGE SLOT ${i}</div>
-    <div class="info"><div class="city">Business Name, CA</div><div class="desc">Retail business — add details &amp; image later.</div>
-    <div class="meta"><span>SOLD / For Sale</span></div></div></div>`;
-  }
+  el.innerHTML=BUSINESS_LISTINGS.map((l,i)=>{
+    const hasImg=!!l.img;
+    return `<div class="lcard" style="flex:none" onclick="openListing(this)" data-tag="${l.tag||''}" data-title="${l.city}" data-detail="${(l.detail||'').replace(/"/g,'&quot;')}" data-img="${l.img||''}">
+    <div class="ph" ${hasImg?`style="background-image:url('${l.img}')"`:`style="display:flex;align-items:center;justify-content:center;color:#b9b2a6;font-size:13px;letter-spacing:.1em"`}>${hasImg?`<span class="tag">${l.tag}</span>`:`IMAGE SLOT ${i+1}`}</div>
+    <div class="info"><div class="city">${l.city}</div><div class="desc">${l.desc}</div></div></div>`;
+  }).join('');
+}
   el.innerHTML=b;
 }
 function renderTeam(){
@@ -187,8 +197,17 @@ function logout(){
   window.location.href='login.html';
 }
 function currentLang(){ try{return localStorage.getItem('rp_lang')||'en';}catch(e){return 'en';} }
-
-/* ---------- init (runs on every page) ---------- */
+/* ---------- listing popup ---------- */
+function openListing(el){
+  const d=el.dataset, m=document.getElementById('rpModal'); if(!m) return;
+  m.querySelector('.ph').style.backgroundImage = d.img ? `url('${d.img}')` : 'none';
+  const tag=m.querySelector('.tag');
+  tag.textContent=d.tag||''; tag.style.display=d.tag?'inline-block':'none';
+  m.querySelector('h3').textContent=d.title||'';
+  m.querySelector('.detail').textContent=d.detail||'';
+  m.classList.add('open');
+}
+function closeModal(){ const m=document.getElementById('rpModal'); if(m) m.classList.remove('open'); }/* ---------- init (runs on every page) ---------- */
 document.addEventListener('DOMContentLoaded',function(){
   // inject header/footer
   const h=document.getElementById('site-header'); if(h) h.innerHTML=headerHTML();
@@ -229,7 +248,14 @@ renderTestimonials(); renderResListings(); renderCommercial(); renderBusiness();
     if(user){ gate.style.display='none'; app.style.display='block'; const cu=document.getElementById('cafeUser'); if(cu) cu.textContent=user; }
     else { gate.style.display='block'; app.style.display='none'; }
   }
-
-  // apply saved language last (so injected header/footer get translated too)
+// build the listing popup
+  if(!document.getElementById('rpModal')){
+    const mo=document.createElement('div');
+    mo.id='rpModal'; mo.className='rp-modal';
+    mo.innerHTML='<div class="rp-modal-box"><button class="rp-close" onclick="closeModal()">×</button><div class="ph"></div><div class="rp-modal-body"><span class="tag"></span><h3></h3><div class="detail"></div></div></div>';
+    mo.addEventListener('click',function(e){ if(e.target===mo) closeModal(); });
+    document.body.appendChild(mo);
+  }
+  renderResGrid();  // apply saved language last (so injected header/footer get translated too)
   applyLang(currentLang());
 });
