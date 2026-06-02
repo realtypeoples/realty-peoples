@@ -14,7 +14,7 @@ async function initLounge(){
   const { data:{ session } } = await sb.auth.getSession();
   if(!session){
     root.innerHTML = `<div class="cafe-gate"><div class="label">Members Only</div>
-      <h2 style="font-size:40px;margin:18px 0">Realty Peoples Lounge</h2>
+<h2 style="font-size:40px;margin:18px 0">Lounge</h2>
       <p style="max-width:560px;margin:0 auto 28px;color:var(--muted)">Please log in or create an account to enter the Lounge.</p>
       <a class="btn btn-accent" href="login.html">Log In or Join</a></div>`;
     return;
