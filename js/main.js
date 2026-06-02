@@ -1,10 +1,8 @@
 /* ===========================================================================
-   main.js — injects the shared header + footer, wires navigation, language,
-   forms, FAQ accordion, login, and the Online Cafe. Loaded on every page.
-   Requires data.js and i18n.js to be loaded first.
+   main.js — shared header/footer, language, listings, popup, forms, login, cafe
    =========================================================================== */
 
-/* ---------- shared HEADER (edit nav here, applies to all pages) ---------- */
+/* ---------- shared HEADER ---------- */
 function headerHTML(){
   return `
   <div class="wrap nav">
@@ -37,7 +35,7 @@ function footerHTML(){
   <div class="wrap">
     <div class="f-grid">
       <div>
-      <img src="logo.png" alt="Realty Peoples logo" style="width:170px;height:auto;margin-bottom:14px">
+        <img src="logo.png" alt="Realty Peoples logo" style="width:170px;height:auto;margin-bottom:14px">
         <p>DRE# 02181947 | NMLS# 2342350</p>
         <p style="margin-top:12px">100 W. Valencia Mesa Dr. Suite #205<br>Fullerton, CA 92835</p>
         <p style="margin-top:12px"><a href="tel:7147700777">714.770.0777</a><br><a href="mailto:info@realtypeoples.com">info@realtypeoples.com</a></p>
@@ -47,6 +45,7 @@ function footerHTML(){
         <p style="line-height:2.2">
           <a href="residential.html" data-i18n="nav_res">Residential</a><br>
           <a href="commercial.html" data-i18n="nav_com">Commercial</a><br>
+          <a href="business.html" data-i18n="nav_biz">Business</a><br>
           <a href="cafe.html" data-i18n="nav_cafe">Online Cafe</a><br>
           <a href="about.html" data-i18n="nav_about">About</a><br>
           <a href="contact.html" data-i18n="f_contactform">Contact Form</a>
@@ -83,46 +82,39 @@ function applyLang(lang){
   try{localStorage.setItem('rp_lang',lang);}catch(e){}
 }
 
-/* ---------- shared section renderers (only run if the holder exists) ---------- */
+/* ---------- section renderers ---------- */
 function renderTestimonials(){
   const el=document.getElementById('testiGrid'); if(!el) return;
   el.innerHTML=TESTIMONIALS.map(t=>`<div class="tcard"><div class="q">"${t.q}"</div><div class="who">${t.who}</div></div>`).join('');
 }
+function listingCard(l,placeholderIndex){
+  const hasImg=!!l.img;
+  const ph = hasImg
+    ? `style="background-image:url('${l.img}')"`
+    : `style="display:flex;align-items:center;justify-content:center;color:#b9b2a6;font-size:13px;letter-spacing:.1em"`;
+  const phInner = hasImg ? `<span class="tag">${l.tag||''}</span>` : `IMAGE SLOT ${placeholderIndex}`;
+  const detail = (l.detail||'').replace(/"/g,'&quot;');
+  return `<div class="lcard" style="flex:none" onclick="openListing(this)" data-tag="${l.tag||''}" data-title="${l.city}" data-detail="${detail}" data-img="${l.img||''}">
+    <div class="ph" ${ph}>${phInner}</div>
+    <div class="info"><div class="city">${l.city}</div><div class="desc">${l.desc}</div></div></div>`;
+}
 function renderResListings(){
   const el=document.getElementById('resCarousel'); if(!el) return;
-  el.innerHTML=RESIDENTIAL_LISTINGS.map(l=>`
-    <div class="lcard" onclick="openListing(this)" data-tag="${l.tag||''}" data-title="${l.city}" data-detail="${(l.detail||'').replace(/"/g,'&quot;')}" data-img="${l.img||''}">
-    <div class="ph" style="background-image:url('${l.img}')"><span class="tag">${l.tag}</span></div>
-    <div class="info"><div class="city">${l.city}</div><div class="desc">${l.desc}</div></div></div>`).join('');
+  el.innerHTML=RESIDENTIAL_LISTINGS.map((l,i)=>listingCard(l,i+1)).join('');
 }
 function renderResGrid(){
   const el=document.getElementById('resGrid'); if(!el) return;
-  el.innerHTML=RESIDENTIAL_LISTINGS.map(l=>`
-    <div class="lcard" style="flex:none" onclick="openListing(this)" data-tag="${l.tag||''}" data-title="${l.city}" data-detail="${(l.detail||'').replace(/"/g,'&quot;')}" data-img="${l.img||''}">
-    <div class="ph" style="background-image:url('${l.img}')"><span class="tag">${l.tag}</span></div>
-    <div class="info"><div class="city">${l.city}</div><div class="desc">${l.desc}</div></div></div>`).join('');
+  el.innerHTML=RESIDENTIAL_LISTINGS.map((l,i)=>listingCard(l,i+1)).join('');
 }
 function renderCommercial(){
   const el=document.getElementById('comGrid'); if(!el) return;
-  el.innerHTML=COMMERCIAL_LISTINGS.map((l,i)=>{
-    const hasImg=!!l.img;
-    return `<div class="lcard" style="flex:none" onclick="openListing(this)" data-tag="${l.tag||''}" data-title="${l.city}" data-detail="${(l.detail||'').replace(/"/g,'&quot;')}" data-img="${l.img||''}">
-    <div class="ph" ${hasImg?`style="background-image:url('${l.img}')"`:`style="display:flex;align-items:center;justify-content:center;color:#b9b2a6;font-size:13px;letter-spacing:.1em"`}>${hasImg?`<span class="tag">${l.tag}</span>`:`IMAGE SLOT ${i+1}`}</div>
-    <div class="info"><div class="city">${l.city}</div><div class="desc">${l.desc}</div></div></div>`;
-  }).join('');
-}
-  el.innerHTML=com;
+  const arr=(typeof COMMERCIAL_LISTINGS!=='undefined')?COMMERCIAL_LISTINGS:[];
+  el.innerHTML=arr.map((l,i)=>listingCard(l,i+1)).join('');
 }
 function renderBusiness(){
   const el=document.getElementById('bizGrid'); if(!el) return;
-  el.innerHTML=BUSINESS_LISTINGS.map((l,i)=>{
-    const hasImg=!!l.img;
-    return `<div class="lcard" style="flex:none" onclick="openListing(this)" data-tag="${l.tag||''}" data-title="${l.city}" data-detail="${(l.detail||'').replace(/"/g,'&quot;')}" data-img="${l.img||''}">
-    <div class="ph" ${hasImg?`style="background-image:url('${l.img}')"`:`style="display:flex;align-items:center;justify-content:center;color:#b9b2a6;font-size:13px;letter-spacing:.1em"`}>${hasImg?`<span class="tag">${l.tag}</span>`:`IMAGE SLOT ${i+1}`}</div>
-    <div class="info"><div class="city">${l.city}</div><div class="desc">${l.desc}</div></div></div>`;
-  }).join('');
-}
-  el.innerHTML=b;
+  const arr=(typeof BUSINESS_LISTINGS!=='undefined')?BUSINESS_LISTINGS:[];
+  el.innerHTML=arr.map((l,i)=>listingCard(l,i+1)).join('');
 }
 function renderTeam(){
   const el=document.getElementById('teamGrid'); if(!el) return;
@@ -145,8 +137,6 @@ function toggleFaq(btn){
   document.querySelectorAll('.faq-q .pm').forEach(x=>x.textContent='+');
   if(!open){a.style.maxHeight=a.scrollHeight+'px';btn.querySelector('.pm').textContent='–';}
 }
-/* Submits to Netlify Forms via AJAX, then shows the thank-you message.
-   Works automatically once deployed to Netlify (no extra setup). */
 function encodeForm(data){
   return Object.keys(data).map(k=>encodeURIComponent(k)+'='+encodeURIComponent(data[k])).join('&');
 }
@@ -170,7 +160,19 @@ function pickChan(i,btn){
   document.getElementById('chanDesc').textContent=CAFE_CHANNELS[i].d;
 }
 
-/* ---------- login + cafe (demo using localStorage) ---------- */
+/* ---------- listing popup ---------- */
+function openListing(el){
+  const d=el.dataset, m=document.getElementById('rpModal'); if(!m) return;
+  m.querySelector('.ph').style.backgroundImage = d.img ? `url('${d.img}')` : 'none';
+  const tag=m.querySelector('.tag');
+  tag.textContent=d.tag||''; tag.style.display=d.tag?'inline-block':'none';
+  m.querySelector('h3').textContent=d.title||'';
+  m.querySelector('.detail').textContent=d.detail||'';
+  m.classList.add('open');
+}
+function closeModal(){ const m=document.getElementById('rpModal'); if(m) m.classList.remove('open'); }
+
+/* ---------- login + cafe (demo) ---------- */
 let curTab='signin', curRole='homeowner';
 function setTab(t){
   curTab=t;
@@ -197,36 +199,22 @@ function logout(){
   window.location.href='login.html';
 }
 function currentLang(){ try{return localStorage.getItem('rp_lang')||'en';}catch(e){return 'en';} }
-/* ---------- listing popup ---------- */
-function openListing(el){
-  const d=el.dataset, m=document.getElementById('rpModal'); if(!m) return;
-  m.querySelector('.ph').style.backgroundImage = d.img ? `url('${d.img}')` : 'none';
-  const tag=m.querySelector('.tag');
-  tag.textContent=d.tag||''; tag.style.display=d.tag?'inline-block':'none';
-  m.querySelector('h3').textContent=d.title||'';
-  m.querySelector('.detail').textContent=d.detail||'';
-  m.classList.add('open');
-}
-function closeModal(){ const m=document.getElementById('rpModal'); if(m) m.classList.remove('open'); }/* ---------- init (runs on every page) ---------- */
+
+/* ---------- init ---------- */
 document.addEventListener('DOMContentLoaded',function(){
-  // inject header/footer
   const h=document.getElementById('site-header'); if(h) h.innerHTML=headerHTML();
   const f=document.getElementById('site-footer'); if(f) f.innerHTML=footerHTML();
 
-  // active nav state by current file
   const file=(location.pathname.split('/').pop()||'index.html');
   document.querySelectorAll('.navlink').forEach(a=>{
     if(a.getAttribute('href')===file) a.classList.add('active');
   });
 
-  // year
   const yr=document.getElementById('yr'); if(yr) yr.textContent=new Date().getFullYear();
 
-  // mobile menu
   const burger=document.getElementById('burger'), navlinks=document.getElementById('navlinks');
   if(burger) burger.onclick=()=>navlinks.classList.toggle('open');
 
-  // language menu
   const langBtn=document.getElementById('langBtn'), langMenu=document.getElementById('langMenu');
   if(langBtn) langBtn.onclick=(e)=>{e.stopPropagation();langMenu.classList.toggle('open');};
   document.querySelectorAll('#langMenu button').forEach(b=>{
@@ -234,21 +222,18 @@ document.addEventListener('DOMContentLoaded',function(){
   });
   document.addEventListener('click',e=>{ if(!e.target.closest('.lang')&&langMenu) langMenu.classList.remove('open'); });
 
-  // header shadow on scroll
   const hdr=document.querySelector('header');
   window.addEventListener('scroll',()=>{ if(hdr) hdr.classList.toggle('scrolled',window.scrollY>10); });
 
-  // render any sections present on this page
-renderTestimonials(); renderResListings(); renderCommercial(); renderBusiness(); renderTeam(); renderFaqs(); renderChannels();
+  renderTestimonials(); renderResListings(); renderResGrid(); renderCommercial(); renderBusiness(); renderTeam(); renderFaqs(); renderChannels();
 
-  // cafe gate / app
   const gate=document.getElementById('cafeGate'), app=document.getElementById('cafeApp');
   if(gate&&app){
     let user=null; try{user=localStorage.getItem('rp_user');}catch(e){}
     if(user){ gate.style.display='none'; app.style.display='block'; const cu=document.getElementById('cafeUser'); if(cu) cu.textContent=user; }
     else { gate.style.display='block'; app.style.display='none'; }
   }
-// build the listing popup
+
   if(!document.getElementById('rpModal')){
     const mo=document.createElement('div');
     mo.id='rpModal'; mo.className='rp-modal';
@@ -256,6 +241,6 @@ renderTestimonials(); renderResListings(); renderCommercial(); renderBusiness();
     mo.addEventListener('click',function(e){ if(e.target===mo) closeModal(); });
     document.body.appendChild(mo);
   }
-  renderResGrid();  // apply saved language last (so injected header/footer get translated too)
+
   applyLang(currentLang());
 });
