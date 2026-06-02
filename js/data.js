@@ -30,10 +30,10 @@ const BUSINESS_LISTINGS = [
 ];
 
 const TEAM = [
-  {name:"Megan Kim", lic:"DRE# 02071171 · NMLS# 1781577", bio:"A dedicated agent with deep roots in Orange County, known for client-first service and sharp market insight.", img:""},
-  {name:"David Han", lic:"DRE# 00000000 · NMLS# 0000000", bio:"An agent with a calm, detail-driven approach, speaking fluent English and Korean.", img:""},
-  {name:"Aiden Lee", lic:"DRE# 00000000 · NMLS# 0000000", bio:"An agent with a positive attitude that helps buyers and investors alike navigate Southern California with confidence.", img:""},
-  {name:"Agent Name", lic:"DRE# 00000000 · NMLS# 0000000", bio:"Commercial and residential expertise, fluent in serving the region's diverse communities.", img:""}
+  {name:"Megan Kim", lic:"DRE# 02181947 · NMLS# 2342350", bio:"A dedicated agent with deep roots in Orange County, known for client-first service and sharp market insight.", img:""},
+  {name:"David Han", lic:"DRE# 02440338", bio:"An agent with a calm, detail-driven approach, speaking fluent English and Korean.", img:""},
+  {name:"Aiden Lee", lic:"DRE# 102230874 · NMLS# 0000000", bio:"An agent with a positive attitude that helps buyers and investors alike navigate Southern California with confidence.", img:""},
+  {name:"Edwin Ro", lic:"DRE# 01320323", bio:"Commercial and residential expertise, fluent in serving the region's diverse communities.", img:""}
 ];
 
 const CAFE_CHANNELS = [
