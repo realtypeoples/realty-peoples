@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Member Login Portal | Realty Peoples</title>
-<meta name="description" content="Log in or create an account to access the Realty Peoples Online Cafe." />
+<meta name="description" content="Log in or create an account to access the Realty Peoples Lounge." />
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -30,27 +30,31 @@
           </div>
           <div class="field pro-cat" id="proCat">
             <label data-i18n="role_cat">Your category</label>
-            <select>
+            <select id="proCatSel">
               <option>Plumber</option><option>Interior Designer</option><option>General Contractor</option>
               <option>Electrician</option><option>Lender / Mortgage</option><option>Home Inspector</option>
-              <option>Landscaper</option><option>Other</option>
+              <option>Landscaper</option><option>ADU Specialist</option><option>Other</option>
             </select>
           </div>
         </div>
 
-        <form onsubmit="doLogin(event)">
-          <div class="field"><label data-i18n="login_user">Username or Email</label><input id="liUser" required autocomplete="username"></div>
+        <form onsubmit="authSubmit(event)">
+          <div class="field"><label data-i18n="login_user">Email</label><input id="liUser" type="email" required autocomplete="username"></div>
           <div class="field"><label data-i18n="login_pass">Password</label><input id="liPass" type="password" required autocomplete="current-password"></div>
           <button class="btn btn-accent" type="submit" style="width:100%" id="loginBtn" data-i18n="login_signin">Sign In</button>
+          <p id="authMsg" style="margin-top:12px;font-size:14px"></p>
         </form>
-        <p class="note" data-i18n="login_secure">🔒 Demo only. Connect Supabase Auth for production — passwords are hashed and never stored by us, served over HTTPS with row-level security.</p>
+        <p class="note">🔒 Secured by Supabase Auth — passwords are hashed and never stored by us.</p>
       </div>
     </div>
   </section>
 </main>
 <footer id="site-footer"></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabaseClient.js"></script>
 <script src="js/data.js"></script>
 <script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
+<script src="js/lounge-auth.js"></script>
 </body>
 </html>
