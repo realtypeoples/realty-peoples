@@ -57,6 +57,7 @@ function footerHTML(){
         <div class="f-net">
           <div class="slot">Storehouse Lending</div>
           <div class="slot">LienBridge</div>
+         <div class="slot">Petersburg Partners</div>
           <div class="slot" data-i18n="f_more">+ more (logo slots)</div>
         </div>
       </div>
