@@ -14,6 +14,7 @@ function headerHTML(){
       <a class="navlink" href="business.html" data-page="business" data-i18n="nav_biz">Business</a>
       <a class="navlink" href="cafe.html" data-page="cafe" data-i18n="nav_cafe">Online Cafe</a>
       <a class="navlink" href="about.html" data-page="about" data-i18n="nav_about">About</a>
+      <a class="navlink" href="lighthouse.html" data-page="lighthouse" data-i18n="nav_lighthouse">Lighthouse</a>
       <a class="navlink" href="contact.html" data-page="contact" data-i18n="nav_contact">Contact</a>
       <div class="lang">
         <button class="lang-btn" id="langBtn">🌐 <span id="langCur">EN</span> ▾</button>
