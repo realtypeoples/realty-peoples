@@ -35,9 +35,9 @@ const TEAM = [
   {name:"David Han", lic:"Senior Partner", bio:"", img:"david.png"},
   {name:"Aiden Lee", lic:"Senior Partner", bio:"", img:""},
   {name:"Sunny Kim", lic:"Chief Marketing Officer", bio:"", img:""},
-  {name:"Wendy Huang", lic:"Marketing Team Lead", bio:"", img:"wendy.png"},
-  {name:"Alex Huang", lic:"Chinese Business Network Lead", bio:"", img:"alex.png"}
-  {name:"Tory Yoon", lic:"Partnerships Lead", bio:"", img:""},
+ {name:"Wendy Huang", lic:"Marketing Team Lead", bio:"", img:"wendy.png"},
+  {name:"Alex Huang", lic:"Chinese Business Network Lead", bio:"", img:"alex.png"},
+  {name:"Tory Yoon", lic:"Partnerships Lead", bio:"", img:""}
 ];
 
 const CAFE_CHANNELS = [
