@@ -37,7 +37,7 @@ const TEAM = [
 {name:"Edwin Ro", lic:"Senior Partner", bio:"", img:"edwin.png"},
   {name:"Sunny Kim", lic:"Chief Marketing Officer", bio:"", img:"sunny.png"},
 {name:"Wendy Huang", lic:"Marketing Team Lead", bio:"", img:"wendy.png"},
-  {name:"Tory Yoon", lic:"Partnerships Lead", bio:"", img:""}
+  {name:"Tory Yoon", lic:"Coordinator", bio:"", img:"tory.png"}
 ];
 
 const CAFE_CHANNELS = [
