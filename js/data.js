@@ -36,8 +36,8 @@ const TEAM = [
   {name:"Aiden Lee", lic:"Senior Partner", bio:"", img:""},
   {name:"Sunny Kim", lic:"Chief Marketing Officer", bio:"", img:""},
   {name:"Wendy Huang", lic:"Marketing Team Lead", bio:"", img:""},
-  {name:"Tory Yoon", lic:"Partnerships Lead", bio:"", img:""},
   {name:"Alex Huang", lic:"Chinese Business Network Lead", bio:"", img:""}
+  {name:"Tory Yoon", lic:"Partnerships Lead", bio:"", img:""},
 ];
 
 const CAFE_CHANNELS = [
