@@ -30,7 +30,7 @@ const BUSINESS_LISTINGS = [
 ];
 
 const TEAM = [
-  {name:"Megan Kim", lic:"Partner", bio:"", img:"megan.png"},
+  {name:"Megan Kim", lic:"Senior Partner", bio:"", img:"megan.png"},
 {name:"Alex Ahn", lic:"International Business Network Lead", bio:"", img:"alex.png"},
   {name:"David Han", lic:"Partner", bio:"", img:"david.png"},
   {name:"Aiden Lee", lic:"Partner", bio:"", img:""},
