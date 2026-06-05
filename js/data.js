@@ -31,11 +31,11 @@ const BUSINESS_LISTINGS = [
 
 const TEAM = [
   {name:"Megan Kim", lic:"Senior Partner", bio:"", img:"megan.png"},
-  {name:"Edwin Ro", lic:"Senior Partner", bio:"", img:"edwin.png"},
+{name:"Alex Ahn", lic:"Chinese Business Network Lead", bio:"", img:"alex.png"},
   {name:"David Han", lic:"Senior Partner", bio:"", img:"david.png"},
   {name:"Aiden Lee", lic:"Senior Partner", bio:"", img:""},
+{name:"Edwin Ro", lic:"Senior Partner", bio:"", img:"edwin.png"},
   {name:"Sunny Kim", lic:"Chief Marketing Officer", bio:"", img:"sunny.png"},
-  {name:"Alex Ahn", lic:"Chinese Business Network Lead", bio:"", img:"alex.png"},
 {name:"Wendy Huang", lic:"Marketing Team Lead", bio:"", img:"wendy.png"},
   {name:"Tory Yoon", lic:"Partnerships Lead", bio:"", img:""}
 ];
