@@ -27,7 +27,11 @@ const BUSINESS_LISTINGS = [
   {city:"North Orange County, CA", desc:"2,500 Square Foot Sushi Restaurant for Sale", tag:"For Sale", img:"", detail:"Add full business-for-sale details here — revenue, lease, inventory, etc."},
   {city:"North Orange County, CA", desc:"1,200 Square Foot Udon and Korean Restaurant for Sale", tag:"For Sale", img:"", detail:"Add full business details here."},
   {city:"North Orange County, CA", desc:"Traditional Sushi Restaurant in Beautiful North OC for Sale", tag:"For Sale", img:"", detail:"Add full business details here."},
-  {city:"North Orange County, CA", desc:"Retail business — add details later.", tag:"For Sale", img:"", detail:"Add full business details here."}
+  {city:"Los Angeles County, CA", desc:"LA County Bustling Sushi Restaurant SOLD", tag:"SOLD", img:"", detail:"Add full business details here."},
+  {city:"Los Angeles County, CA", desc:"Prime Sushi Franchise/Restaurant in an Up and Coming City", tag:"SOLD", img:"", detail:"Add full business details here."},
+  {city:"Alameda County, CA", desc:"Cozy and popular Japanese-Style Ramen Restaurant SOLD", tag:"SOLD", img:"", detail:"Add full business details here."},
+  {city:"North Orange County, CA", desc:"Large sushi and roll restaurant SOLD", tag:"SOLD", img:"", detail:"Add full business details here."},
+  {city:"San Fransisco County, CA", desc:"Korean-Style traditional culturally innovated restaurant SOLD", tag:"SOLD", img:"", detail:"Add full business details here."}
 ];
 
 const TEAM = [
