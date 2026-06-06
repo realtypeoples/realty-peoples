@@ -218,3 +218,4 @@ footer a:hover{color:var(--accent)}
 .rp-modal-body .sub{color:var(--muted);margin-bottom:18px}
 .rp-modal-body .detail{color:var(--ink);line-height:1.7;white-space:pre-line}
 .rp-close{position:absolute;top:14px;right:16px;background:rgba(0,0,0,.5);color:#fff;border:none;width:36px;height:36px;border-radius:50%;font-size:20px;cursor:pointer;z-index:2}
+.price-box{flex:none;background:var(--accent);color:#fff;font-family:var(--serif);font-size:18px;line-height:1;padding:12px 16px;white-space:nowrap;text-align:center}
