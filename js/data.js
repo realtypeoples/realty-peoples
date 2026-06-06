@@ -13,7 +13,7 @@ const RESIDENTIAL_LISTINGS = [
   {city:"Fontana, CA", desc:"3 bed · 3 bath · 1,677 sqft — Great recently built townhouse, providing great views of California and the San Bernardino Valley.", tag:"Sold", img:"townhouse.png", price:"$532K", detail:"A recently built townhouse with a spacious great room and valley views. Add full property details here."},
   {city:"Diamond Bar, CA", desc:"5 bed · 4 bath · 3,228 sqft — Big, spacious house with great natural lighting in a prime educational location.", tag:"Sold", img:"diamond bar.png", price:"$1.45M", detail:"A large, light-filled home in a top school district. Add full property details here."},
   {city:"Eastvale, CA", desc:"3 bed · 3 bath · 2,655 sqft — Classic craftsman, fully reimagined house with an amazing naturally designed pool.", tag:"Sold", img:"eastvale.png", price:"$1.03M", detail:"A classic craftsman, fully reimagined, with a beautiful natural pool. Add full property details here."},
-  {city:"Fullerton, CA", desc:"4 bed · 3 bath · 2,400 sqft — example listing, edit this text with the real details.", tag:"In Escrow", img:"fullerton.png", price:"$985K", detail:"Longer description shown when someone clicks the card. Add full property details here."}
+  {city:"Fullerton, CA", desc:"4 bed · 3 bath · 2,400 sqft — example listing, edit this text with the real details.", tag:"In Escrow", img:"fullertonn.png", price:"$985K", detail:"Longer description shown when someone clicks the card. Add full property details here."}
 ];
 
 const COMMERCIAL_LISTINGS = [
