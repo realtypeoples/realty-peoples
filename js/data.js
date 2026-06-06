@@ -60,6 +60,6 @@ const FAQS = [
   {q:"How much does it cost to work with Realty Peoples?", a:"For buyers, our guidance is typically free — commissions are generally paid through the transaction. For sellers, we'll walk you through our straightforward fee structure during your consultation."},
   {q:"Do I need to be pre-approved before looking at homes?", a:"It's strongly recommended. A pre-approval clarifies your budget and makes your offer far more competitive. We can connect you with trusted lenders in our network."},
   {q:"Which areas do you serve?", a:"Orange County, LA County, and the greater Southern California region — including Fullerton, Irvine, Anaheim, Newport Beach, Pasadena, and more."},
-  {q:"What is the Online Cafe?", a:"A members-only community where buyers and owners chat directly with each other and with service pros — plumbers, designers, contractors, lenders — to ask questions and gather quotes in one place. Free for buyers and owners."},
+  {q:"What is the Lounge?", a:"A members-only community where buyers and owners chat directly with each other and with service pros — plumbers, designers, contractors, lenders — to ask questions and gather quotes in one place. Free for buyers and owners."},
   {q:"Do you help with commercial property?", a:"Yes. We handle retail, office, and investment opportunities. Reach out through the Contact page and tell us what you're looking for."}
 ];
