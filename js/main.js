@@ -98,7 +98,7 @@ function listingCard(l,placeholderIndex){
   const detail = (l.detail||'').replace(/"/g,'&quot;');
   return `<div class="lcard" style="flex:none" onclick="openListing(this)" data-tag="${l.tag||''}" data-title="${l.city}" data-detail="${detail}" data-img="${l.img||''}">
     <div class="ph" ${ph}>${phInner}</div>
-    <div class="info"><div class="city">${l.city}</div><div class="desc">${l.desc}</div></div></div>`;
+    <div class="info"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><div class="city">${l.city}</div>${l.price?`<div class="price-box">${l.price}</div>`:''}</div><div class="desc">${l.desc}</div></div>`;
 }
 function renderResListings(){
   const el=document.getElementById('resCarousel'); if(!el) return;
