@@ -54,11 +54,10 @@ function footerHTML(){
       </div>
       <div>
         <h4 data-i18n="f_network">Our Network</h4>
-        <div class="f-net">
-          <div class="slot">Storehouse Lending</div>
-          <div class="slot">LienBridge</div>
-         <div class="slot">Petersburg Partners</div>
-          <div class="slot" data-i18n="f_more">+ more (logo slots)</div>
+       <div class="f-net">
+          <div class="slot"><img src="storehouse-logo.png" alt="Storehouse Lending"></div>
+          <div class="slot"><img src="lienbridge-logo.png" alt="LienBridge"></div>
+          <div class="slot"><img src="petersburg-logo.png" alt="Petersburg Partners"></div>
         </div>
       </div>
     </div>
