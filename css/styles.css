@@ -235,6 +235,9 @@ footer a:hover{color:var(--accent)}
 @media(max-width:760px){
   #resGrid, #comGrid, #bizGrid{grid-template-columns:1fr !important;}
 }
-/* Pin the logo to the far left; keep the menu where it was */
-.nav{ justify-content:flex-end; }
-.logo{ position:absolute; left:40px; top:50%; transform:translateY(-50%); }
+@media(min-width:901px){
+  header .wrap.nav{ max-width:100%; padding:0 48px; }
+  .nav{ justify-content:flex-start; gap:40px; }
+  .logo{ position:static; transform:none; }
+  .nav-links{ flex:1; justify-content:space-between; }
+}
