@@ -235,7 +235,7 @@ footer a:hover{color:var(--accent)}
 @media(max-width:760px){
   #resGrid, #comGrid, #bizGrid{grid-template-columns:1fr !important;}
 }
-/* Full-width header so the logo lines up on the left */
-header .wrap.nav{ max-width:100%; padding:0 40px; }
+/* Full-width header — logo pushed to the left */
+header .wrap.nav{ max-width:100%; padding-left:20px; padding-right:40px; }
 
 
