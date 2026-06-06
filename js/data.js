@@ -35,12 +35,12 @@ const BUSINESS_LISTINGS = [
 ];
 
 const TEAM = [
-  {name:"Megan Kim", lic:"Senior Partner", bio:"", img:"megan.png"},
-{name:"Alex Ahn", lic:"International Business Network Lead", bio:"", img:"alex.png"},
+  {name:"Alex Ahn", lic:"International Business Network Lead", bio:"", img:"alex.png"},
   {name:"David Han", lic:"Partner", bio:"", img:"david.png"},
   {name:"Aiden Lee", lic:"Partner", bio:"", img:""},
-{name:"Edwin Ro", lic:"Senior Partner", bio:"", img:"edwin.png"},
-  {name:"Sunny Kim", lic:"Chief Marketing Officer", bio:"", img:"sunny.png"},
+   {name:"Megan Kim", lic:"Senior Partner", bio:"", img:"megan.png"},
+   {name:"Edwin Ro", lic:"Senior Partner", bio:"", img:"edwin.png"},
+  {name:"Sunny Kim", lic:"Senior Partner", bio:"", img:"sunny.png"},
 {name:"Wendy Huang", lic:"Chinese/Japanese Marketing Team Lead", bio:"", img:"wendy.png"},
   {name:"Tory Yoon", lic:"Coordinator", bio:"", img:"tory.png"}
 ];
