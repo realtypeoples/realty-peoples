@@ -202,4 +202,58 @@ function quoteForm(r){
 
 function myQuoteBlock(r,q){
   return `<div id="myq_${r.id}">
-    <div style="
+    <div style="font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)">Your Quote${q.price?` · $${esc(q.price)}`:''}</div>
+    <div style="margin:4px 0">${esc(q.message)}</div>
+    ${q.contact?`<div style="font-size:13px;color:var(--muted)">Contact: ${esc(q.contact)}</div>`:''}
+    <div style="margin-top:10px;display:flex;gap:8px">
+      <button onclick="editQuote('${r.id}')" style="${BTN}">Edit</button>
+      <button onclick="deleteQuote('${q.id}','${r.id}')" style="${BTN_DEL}">Delete</button>
+    </div>
+  </div>`;
+}
+
+async function sendQuote(reqId){
+  const msg=document.getElementById('qmsg_'+reqId); msg.style.color='#b00020'; msg.textContent='';
+  const rec={
+    request_id: reqId,
+    pro_id: window.RP_UID,
+    message: document.getElementById('qm_'+reqId).value.trim(),
+    price: parseFloat(document.getElementById('qp_'+reqId).value)||null,
+    contact: document.getElementById('qc_'+reqId).value.trim()
+  };
+  if(!rec.message){ msg.textContent='Add a message.'; return; }
+  const { error } = await sb.from('quotes').insert(rec);
+  if(error){ msg.textContent=error.message; return; }
+  loadAllRequests();
+}
+
+function editQuote(reqId){
+  const q=MY_QUOTES[reqId]; if(!q) return;
+  const box=document.getElementById('myq_'+reqId); if(!box) return;
+  box.innerHTML=`<div style="display:flex;gap:10px;flex-wrap:wrap">
+      <input id="eqp_${reqId}" type="number" value="${q.price!=null?esc(q.price):''}" placeholder="Price $" style="width:120px;padding:10px;border:1px solid var(--line)">
+      <input id="eqc_${reqId}" value="${esc(q.contact||'')}" placeholder="Your contact" style="flex:1;min-width:160px;padding:10px;border:1px solid var(--line)">
+    </div>
+    <textarea id="eqm_${reqId}" style="width:100%;margin-top:10px;min-height:80px;padding:10px;border:1px solid var(--line)">${esc(q.message||'')}</textarea>
+    <button class="btn btn-accent" style="margin-top:8px" onclick="saveQuote('${q.id}','${reqId}')">Save</button>
+    <button class="btn btn-ghost" style="margin-top:8px;margin-left:8px" onclick="loadAllRequests()">Cancel</button>`;
+}
+
+async function saveQuote(id,reqId){
+  const upd={
+    price:parseFloat(document.getElementById('eqp_'+reqId).value)||null,
+    contact:document.getElementById('eqc_'+reqId).value.trim(),
+    message:document.getElementById('eqm_'+reqId).value.trim()
+  };
+  if(!upd.message){ alert('Add a message.'); return; }
+  const { error } = await sb.from('quotes').update(upd).eq('id',id);
+  if(error){ alert(error.message); return; }
+  loadAllRequests();
+}
+
+async function deleteQuote(id,reqId){
+  if(!confirm('Delete this quote?')) return;
+  const { error } = await sb.from('quotes').delete().eq('id',id);
+  if(error){ alert(error.message); return; }
+  loadAllRequests();
+}
