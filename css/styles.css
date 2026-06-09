@@ -237,3 +237,6 @@ footer a:hover{color:var(--accent)}
 }
 .logo{ position:relative; left:-40px; }
 
+.f-net{ align-items:flex-start; }
+.f-net .slot{ padding:8px; }
+.f-net .slot img{ width:170px; height:auto; display:block; }
