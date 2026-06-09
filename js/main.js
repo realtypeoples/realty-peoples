@@ -39,7 +39,7 @@ function footerHTML(){
         <img src="logo.jpeg" alt="Realty Peoples logo" style="width:170px;height:auto;margin-bottom:14px">
         <p>DRE# 02181947 | NMLS# 2342350</p>
         <p style="margin-top:12px">100 W. Valencia Mesa Dr. Suite #205<br>Fullerton, CA 92835</p>
-       <p style="margin-top:12px"><a href="tel:7147700777">714.770.0777</a><br><a href="tel:7147700778">714.770.0778</a><br><a href="mailto:info@realtypeoples.com">info@realtypeoples.com</a></p>
+        <p style="margin-top:12px"><a href="tel:7147700777">714.770.0777</a><br><a href="tel:7147700778">714.770.0778</a><br><a href="mailto:info@realtypeoples.com">info@realtypeoples.com</a></p>
       </div>
       <div>
         <h4 data-i18n="f_explore">Explore</h4>
@@ -54,7 +54,7 @@ function footerHTML(){
       </div>
       <div>
         <h4 data-i18n="f_network">Our Network</h4>
-       <div class="f-net">
+        <div class="f-net">
           <div class="slot"><img src="storehouselogo.jpeg" alt="Storehouse Lending"></div>
           <div class="slot"><img src="lienbridge.jpeg" alt="LienBridge"></div>
           <div class="slot"><img src="petersburg.jpeg" alt="Petersburg Partners"></div>
@@ -68,26 +68,12 @@ function footerHTML(){
   </div>`;
 }
 
-/* ---------- language ---------- */
-function applyLang(lang){
-  const dict=I18N[lang]||I18N.en;
-  document.querySelectorAll('[data-i18n]').forEach(el=>{
-    const k=el.getAttribute('data-i18n'); if(dict[k]) el.innerHTML=dict[k];
-  });
-  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
-    const k=el.getAttribute('data-i18n-ph'); if(dict[k]) el.placeholder=dict[k];
-  });
-  const codes={en:'EN',ko:'KR',zh:'CH',ja:'JPN',es:'SPN'};
-  const cur=document.getElementById('langCur'); if(cur) cur.textContent=codes[lang]||'EN';
-  document.documentElement.lang=lang;
-  try{localStorage.setItem('rp_lang',lang);}catch(e){}
-}
-
 /* ---------- section renderers ---------- */
 function renderTestimonials(){
   const el=document.getElementById('testiGrid'); if(!el) return;
   el.innerHTML=TESTIMONIALS.map(t=>`<div class="tcard"><div class="q">"${t.q}"</div><div class="who">${t.who}</div></div>`).join('');
 }
+
 function listingCard(l,placeholderIndex){
   const hasImg=!!l.img;
   const ph = hasImg
@@ -99,13 +85,17 @@ function listingCard(l,placeholderIndex){
     <div class="ph" ${ph}>${phInner}</div>
     <div class="info"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><div class="city">${l.city}</div>${l.price?`<div class="price-box">${l.price}</div>`:''}</div><div class="desc">${l.desc}</div></div></div>`;
 }
-function renderResListings(){
+
+/* Accept optional listings array — falls back to global RESIDENTIAL_LISTINGS */
+function renderResListings(listings){
   const el=document.getElementById('resCarousel'); if(!el) return;
-  el.innerHTML=RESIDENTIAL_LISTINGS.map((l,i)=>listingCard(l,i+1)).join('');
+  const arr=listings||RESIDENTIAL_LISTINGS;
+  el.innerHTML=arr.map((l,i)=>listingCard(l,i+1)).join('');
 }
-function renderResGrid(){
+function renderResGrid(listings){
   const el=document.getElementById('resGrid'); if(!el) return;
-  el.innerHTML=RESIDENTIAL_LISTINGS.map((l,i)=>listingCard(l,i+1)).join('');
+  const arr=listings||RESIDENTIAL_LISTINGS;
+  el.innerHTML=arr.map((l,i)=>listingCard(l,i+1)).join('');
 }
 function renderCommercial(){
   const el=document.getElementById('comGrid'); if(!el) return;
