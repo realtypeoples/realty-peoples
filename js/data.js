@@ -41,8 +41,9 @@ const TEAM = [
   {name:"Edwin Ro", lic:"Senior Partner", bio:"", img:"edwin.png"},
   {name:"Sunny Kim", lic:"Senior Partner", bio:"", img:"sunny.png"},
   {name:"Wendy Huang", lic:"Chinese/Japanese Marketing Team Lead", bio:"", img:"wendy.png"},
-  {name:"Tory Yoon", lic:"Coordinator", bio:"", img:"tory.png"},
-  {name:"Megan Kim", lic:"Senior Partner", bio:"", img:"megan.png"}
+  {name:"Megan Kim", lic:"Senior Partner", bio:"", img:"megan.png"},
+  {name:"Moon Hee Chan", lic:"Graphic Engineer", bio:"", img:"moon.png"},
+  {name:"Tory Yoon", lic:"Coordinator", bio:"", img:"tory.png"}
 ];
 
 const CAFE_CHANNELS = [
