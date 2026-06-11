@@ -1,5 +1,5 @@
 /* ===========================================================================
-   Realty Peoples â€” global styles
+   Realty Peoples — global styles
    Colors & fonts live in :root below. Edit there to re-theme the whole site.
    =========================================================================== */
 :root{
@@ -7,15 +7,15 @@
   --ink:#0e0e0e;
   --muted:#6b6b6b;
   --line:#e7e4df;
-  --accent:#b08d57;       /* champagne bronze */
+  --accent:#b08d57;
   --accent-dark:#8e6f3f;
   --serif:"Cormorant Garamond", Georgia, "Times New Roman", serif;
   --sans:"Inter","Helvetica Neue",Arial,sans-serif;
   --maxw:1200px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.6;font-weight:300;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;overflow-x:hidden;max-width:100%}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.6;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden;max-width:100%;overscroll-behavior-x:none}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
@@ -31,11 +31,11 @@ section{padding:96px 0}
 .btn-accent:hover{background:transparent;color:var(--accent)}
 
 /* HEADER */
-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);transition:box-shadow .3s}
+header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);transition:box-shadow .3s;width:100%;left:0}
 header.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.06)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
 
-/* LOGO â€” fixed mobile cutoff by removing the negative left offset */
+/* LOGO — fixed mobile cutoff */
 .logo{font-family:"Times New Roman",Times,serif;font-size:25px;letter-spacing:.02em;font-weight:400;position:relative;left:0}
 
 .nav-links{display:flex;align-items:center;gap:30px}
@@ -52,14 +52,14 @@ header.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.06)}
 .hamburger span{width:24px;height:2px;background:var(--ink);display:block}
 
 /* HERO */
-.hero{position:relative;height:78vh;min-height:520px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden}
+.hero{position:relative;height:78vh;min-height:520px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden;width:100%}
 .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.45))}
 .hero .inner{position:relative;z-index:2;max-width:760px;padding:0 24px}
 .hero h1{font-size:clamp(34px,5vw,62px);color:#fff;word-break:keep-all}
 
 /* GATEWAYS */
-.gateways{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--line)}
+.gateways{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--line);width:100%}
 .gateway{position:relative;height:340px;overflow:hidden;cursor:pointer;color:#fff;display:block}
 .gateway img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.6s}
 .gateway:hover img{transform:scale(1.06)}
@@ -88,8 +88,8 @@ header.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.06)}
 .band{background:var(--ink);color:#fff;text-align:center}
 .band h2{color:#fff;font-size:clamp(28px,4vw,42px)}
 .band p{color:#c9c4bc;margin:14px 0 30px}
-.signup{display:flex;gap:10px;max-width:480px;margin:0 auto}
-.signup input{flex:1;padding:14px 16px;border:1px solid #444;background:transparent;color:#fff;font-family:var(--sans)}
+.signup{display:flex;gap:10px;max-width:480px;margin:0 auto;flex-wrap:wrap}
+.signup input{flex:1;min-width:0;padding:14px 16px;border:1px solid #444;background:transparent;color:#fff;font-family:var(--sans)}
 .signup input::placeholder{color:#9a958c}
 
 /* CAROUSEL */
@@ -181,7 +181,7 @@ header.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.06)}
 .cafe-embed code{background:#efe8dc;padding:2px 6px;font-size:12px}
 
 /* FOOTER */
-footer{background:#0b0b0b;color:#cfcabf;padding:72px 0 36px;font-size:14px}
+footer{background:#0b0b0b;color:#cfcabf;padding:72px 0 36px;font-size:14px;width:100%}
 .f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:48px}
 .f-logo{font-family:"Times New Roman",serif;font-size:24px;color:#fff;margin-bottom:8px}
 .logo-slot{width:120px;height:46px;border:1px dashed #444;display:flex;align-items:center;justify-content:center;font-size:10px;color:#777;margin-bottom:16px;letter-spacing:.1em}
@@ -194,11 +194,11 @@ footer a:hover{color:var(--accent)}
 
 /* MOBILE */
 @media(max-width:900px){
-  /* Fix logo cutoff on mobile */
+  /* Fix logo cutoff and overflow on mobile */
   .nav{padding:0 20px}
   .logo{left:0;font-size:20px}
 
-  .nav-links{position:fixed;inset:74px 0 auto 0;background:#fff;flex-direction:column;align-items:flex-start;gap:0;padding:10px 28px 28px;border-bottom:1px solid var(--line);transform:translateY(-130%);transition:.35s;box-shadow:0 16px 30px rgba(0,0,0,.08)}
+  .nav-links{position:fixed;inset:74px 0 auto 0;background:#fff;flex-direction:column;align-items:flex-start;gap:0;padding:10px 28px 28px;border-bottom:1px solid var(--line);transform:translateY(-130%);transition:.35s;box-shadow:0 16px 30px rgba(0,0,0,.08);width:100%}
   .nav-links.open{transform:translateY(0)}
   .nav-links a.navlink{padding:14px 0;width:100%;border-bottom:1px solid var(--line);font-size:15px}
   .hamburger{display:flex}
@@ -214,8 +214,16 @@ footer a:hover{color:var(--accent)}
   section{padding:64px 0}
 }
 
+/* SAMSUNG / FOLDABLE OVERFLOW FIX */
+@media(max-width:600px){
+  .wrap{padding:0 16px}
+  .split .body{padding:36px 20px}
+  .form-card{padding:28px 20px}
+  .auth-card{padding:28px 20px}
+}
+
 /* ---- clickable listing cards + popup ---- */
-.lcard{cursor:pointer;transition:transform .2s, box-shadow .2s}
+.lcard{cursor:pointer;transition:transform .2s,box-shadow .2s}
 .lcard:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.10)}
 .rp-modal{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.55);padding:24px}
 .rp-modal.open{display:flex}
@@ -229,19 +237,11 @@ footer a:hover{color:var(--accent)}
 .rp-close{position:absolute;top:14px;right:16px;background:rgba(0,0,0,.5);color:#fff;border:none;width:36px;height:36px;border-radius:50%;font-size:20px;cursor:pointer;z-index:2}
 .price-box{flex:none;background:var(--accent);color:#fff;font-family:var(--serif);font-size:18px;line-height:1;padding:12px 16px;white-space:nowrap;text-align:center}
 
-/* --- Listing layouts: residential grid, commercial, business --- */
-#resGrid, #comGrid, #bizGrid{
-  display:grid !important;
-  grid-template-columns:repeat(2, 1fr) !important;
-  gap:40px !important;
-  align-items:start;
-}
-#resGrid .lcard, #comGrid .lcard, #bizGrid .lcard{
-  flex:initial !important;
-  width:auto !important;
-}
-#resCarousel{display:flex; gap:24px; overflow-x:auto;}
-#resCarousel .lcard{flex:0 0 340px !important;}
+/* --- Listing layouts --- */
+#resGrid,#comGrid,#bizGrid{display:grid !important;grid-template-columns:repeat(2,1fr) !important;gap:40px !important;align-items:start}
+#resGrid .lcard,#comGrid .lcard,#bizGrid .lcard{flex:initial !important;width:auto !important}
+#resCarousel{display:flex;gap:24px;overflow-x:auto}
+#resCarousel .lcard{flex:0 0 340px !important}
 @media(max-width:760px){
-  #resGrid, #comGrid, #bizGrid{grid-template-columns:1fr !important;}
+  #resGrid,#comGrid,#bizGrid{grid-template-columns:1fr !important}
 }
