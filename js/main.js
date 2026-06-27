@@ -36,7 +36,7 @@ function footerHTML(){
   <div class="wrap">
     <div class="f-grid">
       <div>
-        <img src="logo.png" alt="Realty Peoples logo" style="width:170px;height:auto;margin-bottom:14px">
+        <img src="logotransparent.png" alt="Realty Peoples logo" style="width:170px;height:auto;margin-bottom:14px">
         <p>DRE# 02181947 | NMLS# 2342350</p>
         <p style="margin-top:12px">100 W. Valencia Mesa Dr. Suite #205<br>Fullerton, CA 92835</p>
         <p style="margin-top:12px"><a href="tel:7147700777">714.770.0777</a><br><a href="tel:7147700778">714.770.0778</a><br><a href="mailto:info@realtypeoples.com">info@realtypeoples.com</a></p>
@@ -81,7 +81,7 @@ function listingCard(l,placeholderIndex){
     : `style="display:flex;align-items:center;justify-content:center;color:#b9b2a6;font-size:13px;letter-spacing:.1em"`;
   const phInner = hasImg ? `<span class="tag">${l.tag||''}</span>` : `IMAGE SLOT ${placeholderIndex}`;
   const detail = (l.detail||'').replace(/"/g,'&quot;');
-  return `<div class="lcard" style="flex:none" onclick="openListing(this)" data-tag="${l.tag||''}" data-title="${l.city}" data-detail="${detail}" data-img="${l.img||''}">
+  return `<div class="lcard" style="flex:none" data-tag="${l.tag||''}" data-title="${l.city}" data-detail="${detail}" data-img="${l.img||''}">
     <div class="ph" ${ph}>${phInner}</div>
     <div class="info"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><div class="city">${l.city}</div>${l.price?`<div class="price-box">${l.price}</div>`:''}</div><div class="desc">${l.desc}</div></div></div>`;
 }
@@ -154,8 +154,8 @@ function pickChan(i,btn){
 /* ---------- listing popup ---------- */
 function openListing(el){
   const d=el.dataset, m=document.getElementById('rpModal'); if(!m) return;
-  const ph=m.querySelector('.ph');
   const isBiz=!!el.closest('#bizGrid');
+  const ph=m.querySelector('.ph');
   ph.style.backgroundImage = d.img ? `url('${d.img}')` : 'none';
   if(isBiz){
     ph.style.height='auto';
@@ -175,6 +175,10 @@ function openListing(el){
   m.querySelector('h3').textContent=d.title||'';
   m.querySelector('.detail').textContent=d.detail||'';
   m.classList.add('open');
+}
+function closeModal(){
+  const m=document.getElementById('rpModal');
+  if(m) m.classList.remove('open');
 }
 
 /* ---------- login + cafe (demo) ---------- */
@@ -239,13 +243,31 @@ document.addEventListener('DOMContentLoaded',function(){
     else { gate.style.display='block'; app.style.display='none'; }
   }
 
+  /* Build modal */
   if(!document.getElementById('rpModal')){
     const mo=document.createElement('div');
-    mo.id='rpModal'; mo.className='rp-modal';
-    mo.innerHTML='<div class="rp-modal-box"><button class="rp-close" onclick="closeModal()">×</button><div class="ph"></div><div class="rp-modal-body"><span class="tag"></span><h3></h3><div class="detail"></div></div></div>';
-    mo.addEventListener('click',function(e){ if(e.target===mo) closeModal(); });
+    mo.id='rpModal';
+    mo.className='rp-modal';
+    mo.innerHTML='<div class="rp-modal-box"><button class="rp-close" id="rpCloseBtn">&#x2715;</button><div class="ph"></div><div class="rp-modal-body"><span class="tag"></span><h3></h3><div class="detail"></div></div></div>';
     document.body.appendChild(mo);
+
+    /* Close on X button — event listener instead of inline onclick */
+    document.getElementById('rpCloseBtn').addEventListener('click', function(e){
+      e.stopPropagation();
+      closeModal();
+    });
+
+    /* Close on backdrop click */
+    mo.addEventListener('click', function(e){
+      if(e.target === mo) closeModal();
+    });
   }
+
+  /* Wire up listing cards via event delegation */
+  document.addEventListener('click', function(e){
+    const card = e.target.closest('.lcard');
+    if(card && !e.target.closest('.rp-modal')) openListing(card);
+  });
 
   applyLang(currentLang());
 });
