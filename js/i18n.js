@@ -13,7 +13,7 @@ const I18N = {
       com_title:"Commercial Opportunities",com_ask_title:"Questions? Ask Us.",com_ask_sub:"Looking for retail, office, or investment space? Tell us what you need.",contact_us:"Contact Us",
       cafe_kicker:"Members Only",cafe_gate_title:"Realty Peoples Lounge",cafe_gate_p:"Chat with homebuyers, owners, and trusted pros — plumbers, designers, contractors, lenders. Get quotes and answers without the endless Googling. Free for buyers & owners.",cafe_gate_cta:"Log In or Join",cafe_channels:"Channels",cafe_dm:"Direct Messages",cafe_embed_title:"Chat embeds here",logout:"Log out",
       about_kicker:"Who We Are",about_title:"We Are Realty Peoples",about_mission:"A client-first real estate team serving Orange County, LA County, and Southern California — guiding buyers, sellers, and owners with care, candor, and craft.",
-      team_kicker:"Our Agents",team_title:"Meet the Team",
+      team_kicker:"Our Partners",team_title:"Meet the Team",
       consult_kicker:"Get Started",consult_title:"Consult With Us Today",consult_sub:"Submit the inquiry form to facilitate a comprehensive consultation and determine how our solutions can advance your objectives.",
       f_first:"First Name",f_email:"Email",f_phone:"Phone",f_msg:"Message",f_opt:"Sign me up for news & updates",f_submit:"Submit Inquiry",f_send:"Send Message",f_thanks:"Thank you — we'll be in touch shortly.",
       contact_kicker:"Contact",contact_title:"Contact Us Today",contact_sub:"Whether you're buying, selling, or just exploring, we'd love to hear from you.",
