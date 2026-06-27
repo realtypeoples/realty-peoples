@@ -154,14 +154,28 @@ function pickChan(i,btn){
 /* ---------- listing popup ---------- */
 function openListing(el){
   const d=el.dataset, m=document.getElementById('rpModal'); if(!m) return;
-  m.querySelector('.ph').style.backgroundImage = d.img ? `url('${d.img}')` : 'none';
+  const ph=m.querySelector('.ph');
+  const isBiz=!!el.closest('#bizGrid');
+  ph.style.backgroundImage = d.img ? `url('${d.img}')` : 'none';
+  if(isBiz){
+    ph.style.height='auto';
+    ph.style.paddingTop='60%';
+    ph.style.backgroundSize='contain';
+    ph.style.backgroundRepeat='no-repeat';
+    ph.style.backgroundColor='#f5f4f2';
+  } else {
+    ph.style.height='300px';
+    ph.style.paddingTop='';
+    ph.style.backgroundSize='cover';
+    ph.style.backgroundRepeat='';
+    ph.style.backgroundColor='';
+  }
   const tag=m.querySelector('.tag');
   tag.textContent=d.tag||''; tag.style.display=d.tag?'inline-block':'none';
   m.querySelector('h3').textContent=d.title||'';
   m.querySelector('.detail').textContent=d.detail||'';
   m.classList.add('open');
 }
-function closeModal(){ const m=document.getElementById('rpModal'); if(m) m.classList.remove('open'); }
 
 /* ---------- login + cafe (demo) ---------- */
 let curTab='signin', curRole='homeowner';
