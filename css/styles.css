@@ -245,3 +245,24 @@ footer a:hover{color:var(--accent)}
 @media(max-width:760px){
   #resGrid,#comGrid,#bizGrid{grid-template-columns:1fr !important}
 }
+
+/* Business listing — show full image without cropping */
+#bizGrid .lcard .ph {
+  height: auto;
+  padding-top: 62%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #f5f4f2;
+}
+
+/* Business modal — show full image without cropping */
+#bizGrid .lcard ~ .rp-modal-box .ph,
+.biz-modal .ph {
+  height: auto;
+  padding-top: 60%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #f5f4f2;
+}
+
+
