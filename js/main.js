@@ -55,7 +55,7 @@ function footerHTML(){
       <div>
         <h4 data-i18n="f_network">Our Network</h4>
         <div class="f-net">
-          <div class="slot"><img src="storehouselogo.jpeg" alt="Storehouse Lending"></div>
+          <div class="slot"><img src="storehouselogo.jpg" alt="Storehouse Lending"></div>
           <div class="slot"><img src="lienbridge.jpeg" alt="LienBridge"></div>
           <div class="slot"><img src="petersburg.jpeg" alt="Petersburg Partners"></div>
         </div>
