@@ -249,3 +249,15 @@ footer a:hover{color:var(--accent)}
 /* Business listing — show full image without cropping */
 #bizGrid .lcard .ph{height:auto;padding-top:62%;background-size:contain;background-repeat:no-repeat;background-color:#f5f4f2}
 
+header .wrap.nav {
+  max-width: none;
+  width: 100%;
+  padding-left: 56px;
+  padding-right: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-links {
+  margin-left: auto;
+}
